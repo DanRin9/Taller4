@@ -1,11 +1,17 @@
 package uniandes.dpoo.aerolinea.modelo;
 
+import java.util.*;
+
+import uniandes.dpoo.aerolinea.modelo.cliente.Cliente;
+import uniandes.dpoo.aerolinea.tiquetes.Tiquete;
+
+
 public class Vuelo {
 	
 	private Avion avion;
 	private String fecha;
 	private Ruta ruta;
-	private HashMap<String, Tiquete> tiquetes;
+	private Map<String, Tiquete> tiquetes;
 	
 	public Vuelo(Avion avion, String fecha) {
 		
@@ -26,7 +32,7 @@ public class Vuelo {
 	}
 	
 	public Collection<Tiquete> getTiquietes(){
-		
+		return this.tiquetes.values();
 	}
 	
 	public int venderTiquietes(Cliente cliente, CalculadoraTarifas calculadora, int cantidad) {

@@ -3,12 +3,30 @@ package uniandes.dpoo.aerolinea.modelo;
 /**
  * Esta clase tiene la información de una ruta entre dos aeropuertos que cubre una aerolínea.
  */
+import java.util.*;
+
 public class Ruta
 {
     // TODO completar
+	private Aeropuerto destino;
+	private Aeropuerto origen;
+	private String horaSalida;
+	private String horaLlegada;
+	private String codigoRuta;
+	
+	
 
 
-    /**
+    public Ruta(Aeropuerto origen, Aeropuerto destino, String horaSalida, String horaLlegada, String codigoRuta) {
+		
+		this.destino = destino;
+		this.origen = origen;
+		this.horaSalida = horaSalida;
+		this.horaLlegada = horaLlegada;
+		this.codigoRuta = codigoRuta;
+	}
+
+	/**
      * Dada una cadena con una hora y minutos, retorna los minutos.
      * 
      * Por ejemplo, para la cadena '715' retorna 15.
@@ -33,6 +51,36 @@ public class Ruta
         int horas = Integer.parseInt( horaCompleta ) / 100;
         return horas;
     }
+    
+    public int getDuracion(String horaCompleta) {
+    	
+    	int horas = getHoras(horaCompleta);
+    	int minutos = getMinutos(horaCompleta);
+    	return (horas * 60) + minutos;
+    	
+    }
 
+	public Aeropuerto getDestino() {
+		return destino;
+	}
+
+	public Aeropuerto getOrigen() {
+		return origen;
+	}
+
+	public String getHoraSalida() {
+		return horaSalida;
+	}
+
+	public String getHoraLlegada() {
+		return horaLlegada;
+	}
+
+	public String getCodigoRuta() {
+		return codigoRuta;
+	}
+
+    
+    
     
 }
